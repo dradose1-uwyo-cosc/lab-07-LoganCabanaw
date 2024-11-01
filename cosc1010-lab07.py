@@ -1,12 +1,9 @@
-# Your Name Here
+# Logan Cabanaw
 # UWYO COSC 1010
 # Submission Date
-# Lab XX
-# Lab Section: 
-# Sources, people worked with, help given to: 
-# your
-# comments
-# here
+# Lab 07
+# Lab Section: 16
+
 
 
 # Prompt the user for an upper bound 
@@ -17,9 +14,22 @@
     # If a user did not enter a number output a statement saying so
 # You will continue to prompt the user until a proper integer value is entered
 
-factorial = 1
 
-print(f"The result of the factorial based on the given bound is {factorial}")
+
+while True:
+    upper_bound = input("input upper bound, type 'exit' to exit: ")
+    if upper_bound.isdigit() and int(upper_bound) >= 0:
+        upper_bound = int(upper_bound)
+        factorial = 1
+        for n in range(1, upper_bound + 1):
+            factorial *= n
+        print(f"The result of the factorial based on the given bound is {factorial}")
+    elif upper_bound.lower() == "exit":
+        break
+    elif int(upper_bound) <= 0:
+        print("That is not a positive interger, try again")
+    else:
+        print("That is not an acceptable character")
 
 print("*"*75)
 # Create a while loop that prompts a user for input of an integer values
@@ -38,8 +48,20 @@ print("*"*75)
 # The sum should start at 0 
 
 num_sum = 0 
-
-print(f"Your final sum is {num_sum}")
+while True:
+    num = input("insert an interger number to add, type 'exit' to get result and exit: ")
+    num_rep = num.replace("-","")
+    if num_rep.isdigit():
+        if "-" in num:
+            num_rep = int(num_rep)
+            num_sum = (-1*num_rep) + num_sum
+        num = int(num)
+        num_sum = (-1*num) + num_sum        
+    elif num.lower() == "exit":
+        print(f"Your final sum is {num_sum}")
+        break
+    else:
+        print("error :[")
 
 print("*"*75)
 # Now you will be creating a two operand calculator
@@ -58,5 +80,37 @@ print("*"*75)
     # So, it should function the same for `5 + 6` as `5+6`
 # Print the result of the equation
 # Again, loop through prompting the user for input until `exit` in any casing is input 
+t = 1
+while t == 1:
+    Operation = input("For each operand and operator, split with spaces ").split(" ",-1)
+    for ext_chk in Operation:
+        if ext_chk.isalpha():
+            if ext_chk.lower() == "exit":
+                t = 2
+            else:
+                Operation_sequence = []
+                numbers = []
+                for insert in Operation:
+                    if insert.isdigit():
+                        numbers.append(int(insert))
+                    else:
+                        Operation_sequence.append(insert)
+                num_index = 1
+                value_1 = numbers[0]
+                for operation in Operation_sequence:
+                        if operation == "+":
+                            value_1 = value_1 + numbers[num_index]
+                        elif operation == "-":
+                            value_1 = value_1 - numbers[num_index]
+                        elif operation == "*":
+                            value_1 = value_1 * numbers[num_index]
+                        elif operation == "/":
+                            value_1 = value_1 / numbers[num_index]
+                        elif operation == "%":
+                            value_1 = value_1%numbers[num_index]
+                        num_index += 1
+                print(float(value_1))
+
+
 
         
