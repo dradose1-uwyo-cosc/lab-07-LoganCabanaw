@@ -1,12 +1,5 @@
-# [Name]
-## [Assignment #]
-## [Submission date: MM/DD/YY]
-## Worked with/sources 
-* example
-* example
-* example
-* example
-## Project Quirks/ Things that don't work
-* example
-* example
-* example
+# Logan Cabanaw
+## Lab 07
+## 10/31/2024
+## Section 16
+
