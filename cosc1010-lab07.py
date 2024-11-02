@@ -3,7 +3,10 @@
 # Submission Date
 # Lab 07
 # Lab Section: 16
-
+# Sources, people worked with, help given to: 
+# your
+# comments
+# here
 
 
 # Prompt the user for an upper bound 
@@ -49,7 +52,7 @@ print("*"*75)
 
 num_sum = 0 
 while True:
-    num = input("insert an interger number to add, type 'exit' to get result and exit: ")
+    num = input("insert an interger number to add, type 'exit' to get result: ")
     num_rep = num.replace("-","")
     if num_rep.isdigit():
         if "-" in num:
@@ -80,37 +83,29 @@ print("*"*75)
     # So, it should function the same for `5 + 6` as `5+6`
 # Print the result of the equation
 # Again, loop through prompting the user for input until `exit` in any casing is input 
-t = 1
-while t == 1:
-    Operation = input("For each operand and operator, split with spaces ").split(" ",-1)
-    for ext_chk in Operation:
-        if ext_chk.isalpha():
-            if ext_chk.lower() == "exit":
-                t = 2
-            else:
-                Operation_sequence = []
-                numbers = []
-                for insert in Operation:
-                    if insert.isdigit():
-                        numbers.append(int(insert))
-                    else:
-                        Operation_sequence.append(insert)
-                num_index = 1
-                value_1 = numbers[0]
-                for operation in Operation_sequence:
-                        if operation == "+":
-                            value_1 = value_1 + numbers[num_index]
-                        elif operation == "-":
-                            value_1 = value_1 - numbers[num_index]
-                        elif operation == "*":
-                            value_1 = value_1 * numbers[num_index]
-                        elif operation == "/":
-                            value_1 = value_1 / numbers[num_index]
-                        elif operation == "%":
-                            value_1 = value_1%numbers[num_index]
-                        num_index += 1
-                print(float(value_1))
-
-
-
-        
+while True:
+    Operation = input("Input Arithmatic operation or type 'exit' to exit, be sure to press spacebar between each operand and operator: ").split(" ",-1)
+    if "exit" in Operation:
+        break
+    Operation_sequence = []
+    numbers = []
+    for insert in Operation:
+        if insert.isdigit():
+            numbers.append(int(insert))
+        else:
+            Operation_sequence.append(insert)
+    num_index = 1
+    value_1 = numbers[0]
+    for operation in Operation_sequence:
+        if operation == "+":
+            value_1 = value_1 + numbers[num_index]
+        elif operation == "-":
+            value_1 = value_1 - numbers[num_index]
+        elif operation == "*":
+            value_1 = value_1 * numbers[num_index]
+        elif operation == "/":
+            value_1 = value_1 / numbers[num_index]
+        elif operation == "%":
+            value_1 = value_1%numbers[num_index]
+        num_index += 1        
+    print(value_1)            
